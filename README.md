@@ -1,5 +1,11 @@
 # react-i18-context
 
+## How to run the demo
+```bash
+yarn
+yarn start
+```
+
 ## How to use this in your project
 include the `IntlProvider` file in your souce file
 
