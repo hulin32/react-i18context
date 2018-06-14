@@ -30,7 +30,13 @@ class IntlProvider extends React.Component {
   render() {
     const { locale, langs } = this.state;
     const { children } = this.props;
-    return <IntlContext.Provider value={{ langs, locale, changeLan: this.changeLan }}>{children}</IntlContext.Provider>;
+    return (
+      <IntlContext.Provider
+        value={{ langs, locale, changeLan: this.changeLan }}
+      >
+        {children}
+      </IntlContext.Provider>
+    );
   }
 }
 
@@ -41,14 +47,22 @@ IntlProvider.propTypes = {
 };
 
 const FormatMsg = props => {
-  const { id } = props;
+  const { id, inject = {} } = props;
   return (
     <IntlContext.Consumer>
       {intl => {
-        const text = intl.locale[id];
+        let text = intl.locale[id];
+        const injectKeys = Object.keys(inject);
         if (text === undefined) {
           throw new Error(`no such id(${id})`);
         }
+        text = text.replace(/{(.*?)}/g, matched => {
+          const key = matched.replace('{', '').replace('}', '');
+          if (inject[key]) {
+            return inject[key];
+          }
+          return matched;
+        });
         return text;
       }}
     </IntlContext.Consumer>
@@ -58,7 +72,9 @@ const FormatMsg = props => {
 const DefineLangue = props => {
   return (
     <IntlContext.Consumer>
-      {intl => <div onClick={() => intl.changeLan(props.locale)}>{props.children}</div>}
+      {intl => (
+        <div onClick={() => intl.changeLan(props.locale)}>{props.children}</div>
+      )}
     </IntlContext.Consumer>
   );
 };

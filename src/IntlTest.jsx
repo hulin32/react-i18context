@@ -12,7 +12,7 @@ class IntlTest extends React.Component {
           </DefineLangue>
         ))}
         <div style={{ marginTop: '20px' }}>
-          <FormatMsg id="test" />
+          <FormatMsg id="test" inject={{ name: 'inject' }} />
         </div>
       </div>
     );

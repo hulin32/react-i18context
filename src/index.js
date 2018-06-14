@@ -15,7 +15,7 @@ const App = () => (
 
 // languages text config
 const en = {
-  test: 'hello',
+  test: 'hello {name}',
 };
 const zh = {
   test: '你好',
