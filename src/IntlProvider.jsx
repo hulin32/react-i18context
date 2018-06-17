@@ -79,6 +79,21 @@ const DefineLangue = props => {
   );
 };
 
+const InjectIntlLangWrapper = Component => {
+  const { name } = Component.prototype.constructor;
+  class Consumer extends React.Component {
+    render() {
+      return (
+        <IntlContext.Consumer>
+          {intl => <Component changeLan={intl.changeLan} />}
+        </IntlContext.Consumer>
+      );
+    }
+  }
+  Consumer.displayName = `IntlWrapper${name}`;
+  return Consumer;
+};
+
 // apis
 export default IntlProvider;
-export { FormatMsg, DefineLangue };
+export { FormatMsg, DefineLangue, InjectIntlLangWrapper };

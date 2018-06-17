@@ -1,8 +1,16 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { FormatMsg, DefineLangue } from './IntlProvider';
+import {
+  FormatMsg,
+  DefineLangue,
+  InjectIntlLangWrapper,
+} from '../../src/index';
 
 class IntlTest extends React.Component {
+  componentDidMount() {
+    const { changeLan } = this.props;
+  }
+
   render() {
     return (
       <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -24,4 +32,4 @@ IntlTest.propTypes = {
   langs: PropTypes.array,
   changeLan: PropTypes.func,
 };
-export default IntlTest;
+export default InjectIntlLangWrapper(IntlTest);
