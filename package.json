@@ -1,6 +1,6 @@
 {
   "name": "react-i18context",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "simple react i18 component",
   "main": "dist/index.js",
   "homepage": "https://github.com/flyingalex/react-i18context",
