@@ -1,6 +1,6 @@
 {
   "name": "react-i18context",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "simple react i18 component",
   "main": "dist/index.js",
   "directories": {
@@ -11,7 +11,10 @@
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
-  "keywords": [],
+  "keywords": [
+    "70 lines",
+    "use new context api"
+  ],
   "author": "flyingalex",
   "license": "MIT",
   "peerDependencies": {
