@@ -14,7 +14,7 @@ include the `IntlProvider` file in your souce file
 
 ```js
 // languages is an array object, key is the languae, see the demo
-<IntlProvider languages={languages} init="en">
+<IntlProvider languages={languages} locale="en">
     <App />
 </IntlProvider>
 ```

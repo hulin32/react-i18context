@@ -27,7 +27,7 @@ const languages = {
 };
 
 render(
-  <IntlProvider languages={languages} init="en">
+  <IntlProvider languages={languages} locale="en">
     <App />
   </IntlProvider>,
   document.getElementById('root'),
