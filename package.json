@@ -1,6 +1,6 @@
 {
   "name": "react-i18context",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "simple react i18 component",
   "main": "dist/index.js",
   "directories": {
