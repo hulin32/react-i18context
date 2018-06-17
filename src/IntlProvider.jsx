@@ -7,12 +7,16 @@ const IntlContext = React.createContext();
 class IntlProvider extends React.Component {
   constructor(props) {
     super(props);
-    const { languages, init } = this.props;
-    if (!Object.keys(languages).includes(init)) {
-      throw new Error(`no such language[${init}]`);
+    const { languages, locale } = this.props;
+    if (locale === undefined) {
+      throw new Error(`no initial lang[${locale}], please set locale variable`);
+    }
+
+    if (!Object.keys(languages).includes(locale)) {
+      throw new Error(`no such language[${locale}]`);
     }
     this.state = {
-      locale: languages[init],
+      locale: languages[locale],
       langs: Object.keys(languages),
     };
   }
