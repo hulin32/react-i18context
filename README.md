@@ -1,4 +1,4 @@
-# react-i18-context
+# react-i18context
 
 ## How to run the demo
 ```bash
