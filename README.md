@@ -2,12 +2,14 @@
 
 ## How to run the demo
 ```bash
-yarn
-yarn start
+npm install
+npm run start
 ```
 
 ## How to use this in your project
-include the `IntlProvider` file in your souce file
+```js
+npm install --save react-i18context
+```
 
 # API
 ## 1.IntlProvider
@@ -33,4 +35,11 @@ include the `IntlProvider` file in your souce file
 <DefineLangue locale={lang}>
   <button>change language</button>
 </DefineLangue>
+```
+
+## 4. InjectIntlLangWrapper
+
+```js
+// in the FooComponent props will inject the changeLan method, so you can chnage the language manually
+InjectIntlLangWrapper(FooComponent)
 ```

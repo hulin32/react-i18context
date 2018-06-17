@@ -3,9 +3,7 @@
   "version": "0.1.5",
   "description": "simple react i18 component",
   "main": "dist/index.js",
-  "directories": {
-    "example": "examples"
-  },
+  "homepage": "https://github.com/flyingalex/react-i18context",
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "transpile": "babel src -d dist --copy-files",
