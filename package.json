@@ -1,6 +1,6 @@
 {
   "name": "react-i18context",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "simple react i18 component",
   "main": "dist/index.js",
   "directories": {
@@ -19,7 +19,8 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "prop-types": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
