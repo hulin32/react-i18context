@@ -1,7 +1,7 @@
 import React from 'react';
 import IntlProvider, {
   FormatMsg,
-  DefineLangue,
+  LocaleSet,
   InjectIntlLangWrapper,
 } from './index';
 import renderer from 'react-test-renderer';
@@ -13,7 +13,7 @@ const zh = {
   test: '你好',
 };
 
-const languages = {
+const messages = {
   en,
   zh,
 };
@@ -24,7 +24,7 @@ const TestComponent = props => (
 
 const HOCApp = Component =>
   renderer.create(
-    <IntlProvider languages={languages} locale="en">
+    <IntlProvider messages={messages} locale="en">
       <Component />
     </IntlProvider>,
   );
@@ -54,13 +54,13 @@ test('FormatMsg', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('DefineLangue', () => {
-  const DefineLangueComponent = () => (
-    <DefineLangue locale="en">
+test('LocaleSet', () => {
+  const LocaleSetComponent = () => (
+    <LocaleSet locale="en">
       <button>"en"</button>
-    </DefineLangue>
+    </LocaleSet>
   );
-  const component = HOCApp(DefineLangueComponent);
+  const component = HOCApp(LocaleSetComponent);
 
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();

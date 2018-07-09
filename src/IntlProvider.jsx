@@ -7,25 +7,25 @@ const IntlContext = React.createContext();
 class IntlProvider extends React.Component {
   constructor(props) {
     super(props);
-    const { languages, locale } = this.props;
+    const { messages, locale } = this.props;
     if (locale === undefined) {
       throw new Error(`no initial lang[${locale}], please set locale variable`);
     }
 
-    if (!Object.keys(languages).includes(locale)) {
+    if (!Object.keys(messages).includes(locale)) {
       throw new Error(`no such language[${locale}]`);
     }
     this.state = {
-      locale: languages[locale],
-      langs: Object.keys(languages),
+      locale: messages[locale],
+      langs: Object.keys(messages),
     };
   }
 
-  changeLan = locale => {
+  setLocale = locale => {
     const { langs } = this.state;
-    const { languages } = this.props;
+    const { messages } = this.props;
     if (langs.includes(locale)) {
-      this.setState({ locale: languages[locale] });
+      this.setState({ locale: messages[locale] });
     } else {
       throw new Error(`no such language[${locale}]`);
     }
@@ -36,7 +36,7 @@ class IntlProvider extends React.Component {
     const { children } = this.props;
     return (
       <IntlContext.Provider
-        value={{ langs, locale, changeLan: this.changeLan }}
+        value={{ langs, locale, setLocale: this.setLocale }}
       >
         {children}
       </IntlContext.Provider>
@@ -46,7 +46,7 @@ class IntlProvider extends React.Component {
 
 IntlProvider.propTypes = {
   children: PropTypes.object,
-  languages: PropTypes.object,
+  messages: PropTypes.object,
   init: PropTypes.string,
 };
 
@@ -73,11 +73,11 @@ const FormatMsg = props => {
   );
 };
 
-const DefineLangue = props => {
+const LocaleSet = props => {
   return (
     <IntlContext.Consumer>
       {intl => (
-        <div onClick={() => intl.changeLan(props.locale)}>{props.children}</div>
+        <div onClick={() => intl.setLocale(props.locale)}>{props.children}</div>
       )}
     </IntlContext.Consumer>
   );
@@ -89,7 +89,7 @@ const InjectIntlLangWrapper = Component => {
     render() {
       return (
         <IntlContext.Consumer>
-          {intl => <Component changeLan={intl.changeLan} />}
+          {intl => <Component setLocale={intl.setLocale} />}
         </IntlContext.Consumer>
       );
     }
@@ -100,4 +100,4 @@ const InjectIntlLangWrapper = Component => {
 
 // apis
 export default IntlProvider;
-export { FormatMsg, DefineLangue, InjectIntlLangWrapper };
+export { FormatMsg, LocaleSet, InjectIntlLangWrapper };

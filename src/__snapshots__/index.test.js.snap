@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefineLangue 1`] = `
-<div
-  onClick={[Function]}
->
-  <button>
-    "en"
-  </button>
-</div>
-`;
-
 exports[`FormatMsg 1`] = `"hello inject"`;
 
 exports[`InjectIntlLangWrapper inject 1`] = `
@@ -32,4 +22,14 @@ exports[`IntlProvider config 1`] = `
     }
   }
 />
+`;
+
+exports[`LocaleSet 1`] = `
+<div
+  onClick={[Function]}
+>
+  <button>
+    "en"
+  </button>
+</div>
 `;

@@ -1,8 +1,8 @@
 import IntlProvider, {
   FormatMsg,
-  DefineLangue,
+  LocaleSet,
   InjectIntlLangWrapper,
 } from './IntlProvider';
 
 export default IntlProvider;
-export { FormatMsg, DefineLangue, InjectIntlLangWrapper };
+export { FormatMsg, LocaleSet, InjectIntlLangWrapper };

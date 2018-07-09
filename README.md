@@ -16,7 +16,7 @@ npm install --save react-i18context
 
 ```js
 // languages is an array object, key is the languae, see the demo
-<IntlProvider languages={languages} locale="en">
+<IntlProvider messages={messages} locale="en">
     <App />
 </IntlProvider>
 ```
@@ -28,18 +28,18 @@ npm install --save react-i18context
 <FormatMsg id="test" />
 ```
 
-## 3.DefineLangue
+## 3.LocaleSet
 
 ```js
 // locale is the language you want to use when you click this button
-<DefineLangue locale={lang}>
+<LocaleSet locale={lang}>
   <button>change language</button>
-</DefineLangue>
+</LocaleSet>
 ```
 
 ## 4. InjectIntlLangWrapper
 
 ```js
-// in the FooComponent props will inject the changeLan method, so you can chnage the language manually
+// in the FooComponent props will inject the setLocale method, so you can chnage the language manually
 InjectIntlLangWrapper(FooComponent)
 ```

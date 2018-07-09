@@ -21,13 +21,13 @@ const zh = {
   test: '你好',
 };
 
-const languages = {
+const messages = {
   en,
   zh,
 };
 
 render(
-  <IntlProvider languages={languages} locale="en">
+  <IntlProvider messages={messages} locale="en">
     <App />
   </IntlProvider>,
   document.getElementById('root'),
