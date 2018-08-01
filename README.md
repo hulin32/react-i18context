@@ -15,7 +15,7 @@ npm install --save react-i18context
 ## 1.IntlProvider
 
 ```js
-// languages is an array object, key is the languae, see the demo
+// messages is an array object, key is the languae, see the demo
 <IntlProvider messages={messages} locale="en">
     <App />
 </IntlProvider>
